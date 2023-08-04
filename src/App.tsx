@@ -5,7 +5,7 @@ import { SelectOption } from "./common/type/form";
 import { Formik, Form, Field } from "formik";
 
 const { DatePicker } = Components.Form.Formik.Basic;
-const { Comment } = Components.UI;
+const { Row, Col } = Components.UI.Grid;
 
 interface FormData {
   account: string;
@@ -49,6 +49,7 @@ function App() {
   return (
     <div
       style={{
+        width: "100%",
         // display: "flex",
         // flexDirection: "column",
         // justifyContent: "center",
@@ -56,7 +57,21 @@ function App() {
         padding: "50px",
       }}
     >
- 
+      <Row>
+        {[...Array(8)].map((_, idx) => (
+          <Col key={idx} xs={24} md={12} lg={6} span={10}>
+            <div
+              style={{
+                width: "100%",
+                padding: "10px",
+                border: "1px solid #000",
+              }}
+            >
+              Item {idx + 1}
+            </div>
+          </Col>
+        ))}
+      </Row>
     </div>
   );
 }

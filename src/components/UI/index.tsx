@@ -1,6 +1,7 @@
 import * as Loading from "./Loading";
 import * as Typography from "./Typography";
 import * as SlideShow from "./SlideShow";
+import * as Grid from "./Grid";
 import { List, ListItem } from "./List";
 import Card from "./Card";
 import Modal from "./Modal";
@@ -22,6 +23,7 @@ import Rate from "./Rate";
 import Comment from "./Comment";
 
 export {
+  Grid,
   Loading,
   Typography,
   SlideShow,

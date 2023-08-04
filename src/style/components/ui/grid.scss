@@ -1,0 +1,51 @@
+.row {
+  width: $w-100;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// Justify
+.row-justify-start {
+  justify-content: flex-start;
+}
+
+.row-justify-center {
+  justify-content: center;
+}
+
+.row-justify-end {
+  justify-content: flex-end;
+}
+
+.row-justify-between {
+  justify-content: space-between;
+}
+
+.row-justify-even {
+  justify-content: space-evenly;
+}
+
+.row-justify-around {
+  justify-content: space-around;
+}
+
+// Aign
+.row-align-start {
+  align-items: flex-start;
+}
+
+.row-align-center {
+  align-items: center;
+}
+
+.row-align-end {
+  align-items: flex-end;
+}
+
+.row-align-baseline {
+  align-items: baseline;
+}
+
+.col {
+  flex-shrink: 0;
+}
