@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap");
+
+html {
+  font-size: 62.5%;
+}
+
+img {
+  width: $w-100;
+  height: $h-100;
+}
+
+input,
+textarea,
+button {
+  outline: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: $body-1;
+  color: $tBlack-1;
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $gray-2;
+    border-radius: $roundedMd;
+  }
+  &::-webkit-scrollbar-track {
+    background: $white-1;
+  }
+}

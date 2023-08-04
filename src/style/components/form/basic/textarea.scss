@@ -1,0 +1,96 @@
+.input-textarea {
+  width: $w-100;
+  margin-bottom: $m-10;
+  position: relative;
+  .textarea-label {
+    margin-bottom: $m-10 - 0.5;
+    display: flex;
+    .label-name {
+      margin-right: $m-10 - 0.5;
+    }
+    .label-required {
+      color: $tRed-1;
+    }
+  }
+  .textarea-group {
+    width: $w-100;
+    display: flex;
+    align-items: center;
+    border: 1px solid $gray-2;
+    border-radius: $roundedSm;
+    outline: none;
+    transition: all $durationMd $func;
+    overflow: hidden;
+    position: relative;
+    &:hover {
+      border-color: $blue-1;
+    }
+    &:focus-within {
+      border-color: $blue-1;
+    }
+    .group-control {
+      width: $w-100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: unset;
+    }
+    .group-clear-icon {
+      padding-top: $p-10 - 0.8;
+      padding-right: $p-10 - 0.6;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+      path {
+        color: $tGray-2;
+      }
+    }
+  }
+  .textarea-group-error {
+    border-color: $red-1;
+  }
+}
+
+// Size
+.input-textarea-sm {
+  .textarea-label {
+    .label-name {
+      font-size: $body-2 !important;
+    }
+  }
+  .textarea-group {
+    .group-control {
+      padding: $p-10 - 0.8 $p-10 - 0.4;
+      font-size: $body-3 !important;
+    }
+  }
+}
+
+.input-textarea-md {
+  .textarea-label {
+    .label-name {
+      font-size: $body-1 !important;
+    }
+  }
+  .textarea-group {
+    .group-control {
+      padding: $p-10 - 0.7 $p-10 - 0.4;
+      font-size: $body-2 !important;
+    }
+  }
+}
+
+.input-textarea-lg {
+  .textarea-label {
+    .label-name {
+      font-size: $default !important;
+    }
+  }
+  .textarea-group {
+    .control-action {
+      padding: $p-10 - 0.5;
+      font-size: $body-1 !important;
+    }
+  }
+}

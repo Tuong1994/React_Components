@@ -1,0 +1,80 @@
+.tabs {
+  width: $w-100;
+  .tabs-title {
+    width: $w-100;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    background: $white-1;
+    box-shadow: 0 0 10px $gray-2;
+    border-radius: $roundedSm;
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    .title-item {
+      min-width: max-content;
+      padding: $p-10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all $durationMd $func;
+      & * {
+        transition: all $durationMd $func;
+      }
+      &:hover,
+      &:hover * {
+        color: $tBlue-1;
+        @include respond(mdPhone) {
+          color: $tWhite-1;
+        }
+      }
+      .item-icon {
+        margin-right: $m-10 - 0.5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .title-item-active {
+      color: $tBlue-1;
+      & * {
+        color: $tBlue-1;
+        @include respond(mdPhone) {
+          color: $tWhite-1;
+        }
+      }
+      @include respond(mdPhone) {
+        background: $blue-1;
+        color: $tWhite-1;
+      }
+    }
+  }
+  .tabs-indicator {
+    height: 3px;
+    position: relative;
+    background: $blue-1;
+    transition: all $durationMd $func;
+    @include respond(mdPhone) {
+      display: none;
+    }
+  }
+  .tabs-content {
+    width: $w-100;
+    margin-top: $m-10;
+    border: 1px solid $gray-2;
+    display: none;
+    position: relative;
+    left: -100%;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .tabs-content-active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+    animation: slideIn $durationMd $func 1;
+  }
+}

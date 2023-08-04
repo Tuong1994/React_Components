@@ -1,0 +1,94 @@
+.pagination {
+  width: $w-100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .pagination-content {
+    color: $tGray-2;
+    @include respond(mdPhone) {
+      margin-top: $m-10;
+    }
+  }
+  .pagination-basic {
+    display: flex;
+    @include respond(mdPhone) {
+      display: none;
+    }
+  }
+  .pagination-simple {
+    display: none;
+    margin: 0 $m-10 - 0.5;
+    @include respond(mdPhone) {
+      display: block;
+    }
+  }
+  .pagination-action {
+    display: flex;
+    align-items: center;
+    .action-button {
+      width: $w-10 * 3;
+      height: $h-10 * 3;
+      margin: 0 $m-10 - 0.5;
+      background: transparent;
+      border-radius: $roundedSm;
+      border: 1px solid $gray-2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all $durationMd $func;
+      &:first-child,
+      &:last-child {
+        margin: 0;
+      }
+      & * {
+        transition: all $durationMd $func;
+      }
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        &:hover {
+          border-color: $gray-2;
+          color: $tBlack-1;
+          & * {
+            color: $tBlack-1;
+          }
+        }
+      }
+      &:hover {
+        border-color: $blue-1;
+        color: $tBlue-1;
+        & * {
+          color: $tBlue-1;
+        }
+      }
+    }
+    .action-button-active {
+      border-color: $blue-1;
+      color: $tBlue-1;
+      & * {
+        color: $tBlue-1;
+      }
+    }
+    .action-button-dots {
+      border: unset;
+      cursor: unset;
+      font-size: $h4;
+      &:hover {
+        color: $tBlack-1;
+      }
+    }
+    .action-simple {
+      margin: 0 $m-10;
+    }
+  }
+  @include respond(mdPhone) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.pagination-flex-end {
+  justify-content: flex-end;
+}

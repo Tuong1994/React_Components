@@ -1,0 +1,54 @@
+.divider {
+  background: $gray-2;
+  position: relative;
+  .divider-content {
+    width: max-content;
+    padding: $p-10 - 0.5 $p-10;
+    background: $white-1;
+    font-weight: $semiBold;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.divider-horizontal {
+  width: $w-100;
+  height: 1px;
+  margin: $m-10 * 2 0;
+  .divider-content-left {
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+  }
+  .divider-content-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .divider-content-right {
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+  }
+}
+
+.divider-vertical {
+  width: 1px;
+  min-height: $h-10 + 1;
+  height: $h-100;
+  .divider-content-top {
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .divider-content-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .divider-content-bottom {
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

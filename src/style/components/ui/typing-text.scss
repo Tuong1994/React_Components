@@ -1,0 +1,81 @@
+.typing-text {
+  display: flex;
+  align-items: center;
+  .text-view {
+    font-weight: $semiBold;
+    @include respond(mdTablet) {
+      font-size: $h1 !important;
+    }
+    @include respond(mdPhone) {
+      font-size: $h4 !important;
+    }
+  }
+  .text-line {
+    width: 4px;
+    height: calc($h-100 + 10px);
+    background: $black-1;
+    animation: fadeIn $durationLg $func infinite;
+  }
+  @include respond(mdTablet) {
+    height: $h-10 * 4 !important;
+  }
+  @include respond(mdPhone) {
+    height: $h-10 * 2.5 !important;
+  }
+}
+
+// Theme
+.typing-text-dark {
+  .text-view {
+    color: $tBlack-1;
+  }
+  .text-line {
+    background: $black-1;
+  }
+}
+
+.typing-text-light {
+  .text-view {
+    color: $tWhite-1;
+  }
+  .text-line {
+    background: $white-1;
+  }
+}
+
+// Color
+.typing-text-red {
+  .text-view {
+    color: $tRed-1;
+  }
+  .text-line {
+    background: $red-1;
+  }
+}
+
+.typing-text-blue {
+  .text-view {
+    color: $tBlue-1;
+  }
+  .text-line {
+    background: $blue-1;
+  }
+}
+
+.typing-text-green {
+  .text-view {
+    color: $tGreen-1;
+  }
+  .text-line {
+    background: $green-1;
+  }
+}
+
+.typing-text-orange {
+  .text-view {
+    color: $tOrange-1;
+  }
+  .text-line {
+    background: $orange-1;
+  }
+}

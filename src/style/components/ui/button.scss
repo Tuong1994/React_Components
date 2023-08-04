@@ -1,0 +1,154 @@
+.button {
+  border: 1px solid $gray-2;
+  border-radius: $roundedSm;
+  background: $white-1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  transition: all $durationSm $func;
+  &::after {
+    content: "";
+    width: $w-100;
+    height: $h-100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    border: 5px solid $RGBA-black-2;
+    border-radius: $roundedSm;
+    transition: all $durationSm $func;
+    z-index: -1;
+  }
+  & * {
+    margin: 0;
+  }
+  &:hover {
+    opacity: 0.7;
+  }
+  &:active {
+    opacity: 1;
+  }
+  &:active::after {
+    opacity: 1;
+  }
+}
+// Variant
+.button-info {
+  background: $blue-1;
+  border-color: $blue-1;
+  color: $tWhite-1;
+  & * {
+    color: $tWhite-1;
+  }
+  &::after {
+    border-color: $RGBA-blue-2;
+  }
+}
+
+.button-success {
+  background: $green-1;
+  border-color: $green-1;
+  color: $tWhite-1;
+  & * {
+    color: $tWhite-1;
+  }
+  &::after {
+    border-color: $RGBA-green-2;
+  }
+}
+
+.button-warning {
+  background: $orange-1;
+  border-color: $orange-1;
+  color: $tWhite-1;
+  & * {
+    color: $tWhite-1;
+  }
+  &::after {
+    border-color: $RGBA-orange-2;
+  }
+}
+
+.button-danger {
+  background: $red-1;
+  border-color: $red-1;
+  color: $tWhite-1;
+  & * {
+    color: $tWhite-1;
+  }
+  &::after {
+    border-color: $RGBA-red-2;
+  }
+}
+
+// Ghost
+.button-info-ghost {
+  background: $white-1;
+  color: $tBlue-1;
+  & * {
+    color: $tBlue-1;
+  }
+}
+
+.button-success-ghost {
+  background: $white-1;
+  color: $tGreen-1;
+  & * {
+    color: $tGreen-1;
+  }
+}
+
+.button-warning-ghost {
+  background: $white-1;
+  color: $tOrange-1;
+  & * {
+    color: $tOrange-1;
+  }
+}
+
+.button-danger-ghost {
+  background: $white-1;
+  color: $tRed-1;
+  & * {
+    color: $tRed-1;
+  }
+}
+
+// Size
+.button-sm {
+  padding: $p-10 - 0.6 $p-10 - 0.2;
+  font-size: $body-3;
+  & * {
+    font-size: $body-3;
+  }
+}
+
+.button-md {
+  padding: $p-10 - 0.4 $p-10;
+}
+
+.button-lg {
+  padding: $p-10 - 0.2 $p-10 + 0.5;
+  font-size: $subtitle;
+  & * {
+    font-size: $subtitle;
+  }
+}
+
+// Disabled
+.button-disabled {
+  background: $gray-2;
+  color: $tGray-1;
+  cursor: not-allowed;
+  & * {
+    color: $tGray-1;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}

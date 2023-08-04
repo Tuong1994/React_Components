@@ -1,0 +1,82 @@
+// Title
+.title {
+  margin-bottom: $m-10 - 0.4;
+}
+
+.title-level-1 {
+  font-size: $h1;
+}
+
+.title-level-2 {
+  font-size: $h2;
+}
+
+.title-level-3 {
+  font-size: $h3;
+}
+
+.title-level-4 {
+  font-size: $h4;
+}
+
+.title-level-5 {
+  font-size: $h5;
+}
+
+.title-level-6 {
+  font-size: $h6;
+}
+
+.title-dark {
+  color: $tBlack-1;
+  & * {
+    color: $tBlack-1;
+  }
+}
+
+.title-light {
+  color: $tWhite-1;
+  & * {
+    color: $tWhite-1;
+  }
+}
+
+// Paragraph
+.paragraph {
+  margin: $m-10 - 0.4 0;
+  line-height: $h-10 + 1.2;
+}
+
+// Paragraph align
+.paragraph-left {
+  text-align: left;
+}
+
+.paragraph-right {
+  text-align: right;
+}
+
+.paragraph-center {
+  text-align: center;
+}
+
+.paragraph-justify {
+  text-align: justify;
+}
+
+// Paragraph weight
+.paragraph-thin {
+  font-weight: $thin;
+}
+
+.paragraph-regular {
+  font-weight: $regular;
+}
+
+.paragraph-semiBold {
+  font-weight: $semiBold;
+}
+
+.paragraph-bold {
+  font-weight: $bold;
+}

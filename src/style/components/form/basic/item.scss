@@ -1,0 +1,24 @@
+// Form item
+.form-item {
+  & > .input {
+    margin: 0;
+  }
+}
+
+.form-item-margin {
+  margin-bottom: $m-10;
+}
+
+.form-item-error-message {
+  margin-bottom: $m-10;
+}
+
+// Form control disabled
+.control-disabled {
+  opacity: 0.6;
+  user-select: none;
+  pointer-events: none;
+  &:hover {
+    border-color: $gray-2 !important;
+  }
+}

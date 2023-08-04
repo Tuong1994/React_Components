@@ -1,0 +1,84 @@
+.badge {
+  padding: $p-10 - 0.8 $p-10 - 0.5;
+  border-radius: $roundedSm;
+  border: 1px solid $gray-2;
+  background: $white-1;
+  font-size: $body-3;
+  & * {
+    font-size: $body-3;
+  }
+}
+
+// Variant
+.badge-info {
+  background: $blue-1;
+  color: $tWhite-1;
+  border-color: $blue-1;
+  & * {
+    color: $tWhite-1;
+  }
+}
+
+.badge-success {
+  background: $green-1;
+  color: $tWhite-1;
+  border-color: $green-1;
+  & * {
+    color: $tWhite-1;
+  }
+}
+
+.badge-danger {
+  background: $red-1;
+  color: $tWhite-1;
+  border-color: $red-1;
+  & * {
+    color: $tWhite-1;
+  }
+}
+
+.badge-warning {
+  background: $orange-1;
+  color: $tWhite-1;
+  border-color: $orange-1;
+  & * {
+    color: $tWhite-1;
+  }
+}
+
+// Ghost
+.badge-info-ghost {
+  background: $RGBA-blue-1;
+  color: $tBlue-1;
+  border-color: $RGBA-blue-3;
+  & * {
+    color: $tBlue-1;
+  }
+}
+
+.badge-success-ghost {
+  background: $RGBA-green-1;
+  color: $tGreen-1;
+  border-color: $RGBA-green-3;
+  & * {
+    color: $tGreen-1;
+  }
+}
+
+.badge-danger-ghost {
+  background: $RGBA-red-1;
+  color: $tRed-1;
+  border-color: $RGBA-red-3;
+  & * {
+    color: $tRed-1;
+  }
+}
+
+.badge-warning-ghost {
+  background: $RGBA-orange-1;
+  color: $tOrange-1;
+  border-color: $RGBA-orange-3;
+  & * {
+    color: $tOrange-1;
+  }
+}

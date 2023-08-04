@@ -1,0 +1,71 @@
+// Image preview
+.image {
+  width: $w-100;
+  height: $h-100;
+  position: relative;
+  overflow: hidden;
+  &:hover .image-action {
+    opacity: 1;
+  }
+  .image-view {
+    border-radius: $roundedMd;
+    object-position: center;
+  }
+  .image-action {
+    width: $w-100;
+    height: $h-100;
+    background: $RGBA-black-3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all $durationMd $func;
+    .action-icon {
+      margin: 0 $m-10;
+      cursor: pointer;
+      path {
+        color: $tWhite-1;
+      }
+    }
+  }
+}
+
+.image-xs {
+  width: $w-10 * 6;
+  height: $h-10 * 6;
+}
+
+.image-sm {
+  width: $w-10 * 10;
+  height: $h-10 * 10;
+}
+
+.image-md {
+  width: $w-10 * 15;
+  height: $h-10 * 15;
+}
+
+.image-lg {
+  width: $w-10 * 25;
+  height: $h-10 * 25;
+}
+
+.image-xl {
+  width: $w-10 * 30;
+  height: $h-10 * 30;
+}
+
+.image-cover {
+  object-fit: cover;
+}
+
+.image-contain {
+  object-fit: contain;
+}
+
+.image-fill {
+  object-fit: fill;
+}

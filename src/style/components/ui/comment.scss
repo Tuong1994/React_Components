@@ -1,0 +1,42 @@
+.comment {
+  .comment-list {
+    list-style: none;
+    .list-action {
+      border: unset;
+      background: transparent;
+      font-size: $body-2;
+      color: $tBlue-1;
+    }
+    .list-item-comment {
+      margin: $m-10 0;
+      .comment-body {
+        margin: $m-10 0;
+        padding: $p-10;
+        background: $gray-1;
+        border-radius: $roundedSm;
+      }
+      .comment-action {
+        border: unset;
+        padding: 0;
+      }
+      .comment-child {
+        padding-left: $p-10;
+        position: relative;
+        .child-collapse {
+          width: 1px;
+          height: $h-100;
+          background: $gray-2;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 10;
+        }
+      }
+    }
+  }
+  .comment-list-scroll {
+    height: $h-10 * 30;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}

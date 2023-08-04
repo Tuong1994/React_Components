@@ -1,0 +1,81 @@
+.avatar {
+  position: relative;
+  .avatar-badge {
+    min-width: max-content;
+    padding: $p-10 - 0.6;
+    width: $w-10 + 1.3;
+    height: $h-10 + 1.3;
+    border: 2px solid $white-1;
+    border-radius: $circle;
+    background: $red-1;
+    color: $tWhite-1;
+    font-size: $body-3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -1rem;
+    left: 80%;
+    z-index: 1;
+  }
+  .avatar-badge-radius {
+    border-radius: $roundedLg;
+  }
+  .avatar-dot {
+    width: $w-10 + 0.3;
+    height: $h-10 + 0.3;
+    border: 2px solid $white-1;
+    border-radius: $circle;
+    background: $red-1;
+    position: absolute;
+    top: -0.5rem;
+    left: 80%;
+    z-index: 1;
+  }
+  .avatar-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $gray-1;
+    background: $gray-1;
+    overflow: hidden;
+  }
+  .avatar-child-square {
+    border-radius: $roundedMd;
+  }
+
+  .avatar-child-circle {
+    border-radius: $circle;
+  }
+  .avatar-child-red {
+    background: $red-1;
+    border-color: $red-1;
+    & * {
+      color: $tWhite-1;
+    }
+  }
+
+  .avatar-child-blue {
+    background: $blue-1;
+    border-color: $blue-1;
+    & * {
+      color: $tWhite-1;
+    }
+  }
+
+  .avatar-child-green {
+    background: $green-1;
+    border-color: $green-1;
+    & * {
+      color: $tWhite-1;
+    }
+  }
+
+  .avatar-child-orange {
+    background: $orange-1;
+    border-color: $orange-1;
+    & * {
+      color: $tWhite-1;
+    }
+  }
+}

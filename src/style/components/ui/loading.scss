@@ -1,0 +1,75 @@
+// Spinner
+.spinner {
+  border-radius: $circle;
+  border: 2px solid transparent;
+  animation: spin $durationMd $func infinite;
+}
+
+.spinner-dark {
+  border-color: $black-1;
+  border-top-color: transparent;
+}
+
+.spinner-light {
+  border-color: $white-1;
+  border-top-color: transparent;
+}
+
+// Skeleton
+.skeleton {
+  padding: $p-10;
+  margin-bottom: $m-10;
+  background: $gray-2;
+  border-radius: $roundedLg;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  &:last-child {
+    margin: 0;
+  }
+  &::after {
+    content: "";
+    width: $w-100;
+    height: $h-100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(
+      to right,
+      $RGBA-white-1 0,
+      $RGBA-white-2 20%,
+      $RGBA-white-3 40%,
+      $RGBA-white-4 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 500px 400px;
+    animation: shimmer $durationLg linear infinite;
+  }
+}
+
+.skeleton-line {
+  width: $w-100;
+}
+
+.skeleton-image {
+  width: $w-100;
+  height: $h-10 + 20;
+  border-radius: $roundedMd;
+}
+
+.skeleton-avatar {
+  width: $w-10 + 3;
+  height: $h-10 + 3;
+  border-radius: $circle;
+}
+
+.skeleton-button {
+  width: $w-10 + 4;
+  height: $h-10 + 0.5;
+  border-radius: $roundedSm;
+}
+
+.skeleton-paragraph-line {
+  width: $w-100;
+  padding: $p-10 - 0.4 $p-10;
+}

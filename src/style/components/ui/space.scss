@@ -1,0 +1,43 @@
+.space {
+  width: $w-100;
+  padding: $p-10 - 0.8 0;
+  display: flex;
+  .space-child {
+    &:last-child {
+      margin: 0;
+    }
+  }
+  .space-child-sm {
+    margin-right: $m-10;
+  }
+  .space-child-md {
+    margin-right: $m-10 * 4;
+  }
+  .space-child-lg {
+    margin-right: $m-10 * 8;
+  }
+}
+
+.space-justify-start {
+  justify-content: flex-start;
+}
+
+.space-justify-center {
+  justify-content: center;
+}
+
+.space-justify-end {
+  justify-content: flex-end;
+}
+
+.space-align-start {
+  align-items: flex-start;
+}
+
+.space-align-center {
+  align-items: center;
+}
+
+.space-align-end {
+  align-items: flex-end;
+}

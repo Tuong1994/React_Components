@@ -1,0 +1,40 @@
+.accordion {
+  width: $w-100;
+  border: 1px solid $gray-2;
+  border-radius: $roundedSm;
+  .accordion-title {
+    padding: $p-10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all $durationLg $func;
+    .title-name {
+      display: flex;
+      align-items: center;
+      .name-icon {
+        margin-right: $m-10;
+      }
+    }
+    .title-icon {
+      transform: rotate(0);
+      transition: all $durationLg $func;
+    }
+    .title-icon-rotate {
+      transform: rotate(180deg);
+    }
+  }
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all $durationLg $func;
+    .content-inner {
+      padding: $p-10;
+    }
+  }
+  .accordion-content-active {
+    max-height: $h-10 * 50;
+    overflow-y: auto;
+    transition: all 2s $func;
+  }
+}

@@ -1,0 +1,79 @@
+.dropdown {
+  position: relative;
+  .dropdown-title {
+    position: relative;
+    cursor: pointer;
+    .title-arrow {
+      border: 8px solid transparent;
+      border-bottom-color: $white-1;
+      position: absolute;
+      top: 8px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all $durationMd $func;
+    }
+  }
+  .dropdown-content {
+    min-width: $w-100;
+    width: max-content;
+    border-radius: $roundedMd;
+    background: $white-1;
+    box-shadow: 0 0 20px $gray-2;
+    position: absolute;
+    top: 110%;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all $durationMd $func;
+    .content-item {
+      padding: $p-10;
+      cursor: pointer;
+      transition: all $durationMd $func;
+      & * {
+        text-decoration: none;
+        transition: all $durationMd $func;
+      }
+      &:hover {
+        background: $blue-1;
+        color: $tWhite-1;
+        & * {
+          color: $tWhite-1;
+        }
+      }
+    }
+  }
+}
+
+.dropdown-bottom-left {
+  left: 0;
+  .dropdown-title {
+    .title-arrow {
+      left: 15px;
+    }
+  }
+}
+
+.dropdown-bottom-right {
+  right: 0;
+  .dropdown-title {
+    .title-arrow {
+      right: 15px;
+    }
+  }
+}
+
+.dropdown-hover {
+  &:hover .dropdown-title .title-arrow,
+  &:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.dropdown-active {
+  .dropdown-title .title-arrow,
+  .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+  }
+}

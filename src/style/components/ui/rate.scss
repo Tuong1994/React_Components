@@ -1,0 +1,26 @@
+.rate {
+  display: flex;
+  .rate-item {
+    margin: 0 $m-10 - 0.5;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    .item-control {
+      display: none;
+    }
+    .item-icon {
+      cursor: pointer;
+      path {
+        color: $tGray-2;
+      }
+    }
+    .item-icon-active {
+      path {
+        color: $tYellow-1;
+      }
+    }
+  }
+}
