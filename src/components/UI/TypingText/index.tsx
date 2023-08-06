@@ -127,4 +127,4 @@ const TypingText: React.ForwardRefRenderFunction<
   );
 };
 
-export default TypingText;
+export default React.forwardRef(TypingText);

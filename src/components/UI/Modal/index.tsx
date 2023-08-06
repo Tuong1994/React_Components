@@ -1,6 +1,7 @@
 import React from "react";
 import Button, { ButtonProps } from "../Button";
 import useRender from "@/common/hooks/useRender";
+import useOverflow from "@/common/hooks/useOverflow";
 
 export interface ModalProps {
   rootClass?: string;
@@ -30,7 +31,7 @@ const Modal: React.ForwardRefRenderFunction<HTMLDivElement, ModalProps> = (
     headerClass = "",
     bodyClass = "",
     footerClass = "",
-    open,
+    open = false,
     hasFooter = true,
     style,
     headerStyle,
@@ -49,6 +50,8 @@ const Modal: React.ForwardRefRenderFunction<HTMLDivElement, ModalProps> = (
   ref
 ) => {
   const isRender = useRender(Boolean(open));
+
+  useOverflow(open);
 
   const sizeClass = React.useMemo(() => {
     const sizes: any = {
@@ -84,7 +87,7 @@ const Modal: React.ForwardRefRenderFunction<HTMLDivElement, ModalProps> = (
         <div
           ref={ref}
           style={style}
-          className={`modal ${modalActiveClass} ${sizeClass()} ${rootClass}`}
+          className={`modal ${modalActiveClass} ${sizeClass} ${rootClass}`}
         >
           {/* Header */}
           <div style={headerStyle} className={`modal-header ${headerClass}`}>

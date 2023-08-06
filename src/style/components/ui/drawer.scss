@@ -1,0 +1,87 @@
+.drawer-backdrop {
+  width: $w-100;
+  height: 100vh;
+  background: $RGBA-black-3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $durationSm $func;
+}
+
+.drawer-backdrop-active {
+  opacity: 1;
+  visibility: visible;
+  animation: fadeIn $durationSm $func;
+}
+
+.drawer-container {
+  width: $w-100 - 70;
+  height: $h-100;
+  box-shadow: 0 0 5px $RGBA-black-4;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $durationMd $func;
+  .container-header {
+    height: $h-10 * 5;
+    padding: $p-10 * 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $gray-2;
+    .header-content {
+      margin-right: $m-10;
+    }
+    .header-icon {
+      border: unset;
+      background: transparent;
+      cursor: pointer;
+    }
+  }
+  .container-body {
+    height: calc($h-100 - ($h-10 * 5));
+    padding: $p-10 * 1.5;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .container-body-height {
+    height: 100vh;
+  }
+  @include respond(laptop) {
+    width: $w-100 - 60;
+  }
+  @include respond(mdTablet) {
+    width: $w-100 - 50;
+  }
+  @include respond(mdPhone) {
+    width: $w-100 - 20;
+  }
+}
+
+.drawer-container-active {
+  right: 0;
+  opacity: 1;
+  visibility: visible;
+  animation: slideRightIn $durationMd $func;
+}
+
+// Theme
+.drawer-container-light {
+  background: $white-1;
+  & * {
+    color: $tBlack-1;
+  }
+}
+
+.drawer-container-dark {
+  background: $black-1;
+  & * {
+    color: $tWhite-1;
+  }
+}

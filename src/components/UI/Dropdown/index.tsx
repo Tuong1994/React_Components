@@ -79,4 +79,4 @@ const Dropdown: React.ForwardRefRenderFunction<
   );
 };
 
-export default Dropdown;
+export default React.forwardRef(Dropdown);

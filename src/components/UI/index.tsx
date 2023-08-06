@@ -22,6 +22,8 @@ import Space from "./Space";
 import Rate from "./Rate";
 import Comment from "./Comment";
 import Alert from "./Alert";
+import Switch from "./Switch";
+import Drawer from "./Drawer";
 
 export {
   Grid,
@@ -33,13 +35,11 @@ export {
   Card,
   Modal,
   Tooltip,
-  Dropdown,
-  List,
-  ListItem,
   Divider,
   Avatar,
   Image,
   Pagination,
+  Dropdown,
   TypingText,
   NoteMessage,
   Accordion,
@@ -49,4 +49,8 @@ export {
   Rate,
   Comment,
   Alert,
+  Switch,
+  Drawer,
+  List,
+  ListItem,
 };

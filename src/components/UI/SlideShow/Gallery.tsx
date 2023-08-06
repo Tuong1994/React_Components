@@ -3,6 +3,7 @@ import { SlideItem } from "@/common/type/slideshow";
 import { FaAngleLeft, FaAngleRight, FaList, FaTimes } from "react-icons/fa";
 import Image from "../Image";
 import useRender from "@/common/hooks/useRender";
+import useOverflow from "@/common/hooks/useOverflow";
 
 export interface SlideGalleryProps {
   open?: boolean;
@@ -73,6 +74,8 @@ const SlideGallery: React.ForwardRefRenderFunction<
   const [isShow, setIsShow] = React.useState<boolean>(false);
 
   const render = useRender(open);
+
+  useOverflow(open);
 
   React.useEffect(() => {
     if (autoPlay) {

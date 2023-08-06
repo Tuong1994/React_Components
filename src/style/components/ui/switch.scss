@@ -1,0 +1,71 @@
+.switch {
+  position: relative;
+  background: $gray-1;
+  border-radius: $roundedLg;
+  transition: all $durationMd $func;
+  .switch-dot {
+    background: $white-1;
+    border-radius: $circle;
+    box-shadow: 0 0 5px $black-1;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    transition: all $durationMd $func;
+    z-index: 10;
+  }
+}
+
+// Size
+.switch-sm {
+  width: $w-10 * 3;
+  height: $h-10 * 1.5;
+  .switch-dot {
+    width: $w-10 * 1.5;
+    height: $h-10 * 1.5;
+  }
+  .switch-dot-active {
+    left: 15px;
+  }
+}
+
+.switch-md {
+  width: $w-10 * 4;
+  height: $h-10 * 2;
+  .switch-dot {
+    width: $w-10 * 2;
+    height: $h-10 * 2;
+  }
+  .switch-dot-active {
+    left: 20px;
+  }
+}
+
+.switch-lg {
+  width: $w-10 * 6;
+  height: $h-10 * 3;
+  .switch-dot {
+    width: $w-10 * 3;
+    height: $h-10 * 3;
+  }
+  .switch-dot-active {
+    left: 30px;
+  }
+}
+
+// Variant
+.switch-success {
+  background: $green-1;
+}
+
+.switch-danger {
+  background: $red-1;
+}
+
+.switch-warning {
+  background: $orange-1;
+}
+
+.switch-info {
+  background: $blue-1;
+}

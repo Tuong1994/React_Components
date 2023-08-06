@@ -46,10 +46,13 @@ function App() {
 
   const onSubmit = (data: FormData) => console.log(data);
 
+  const [open, setOpen] = React.useState<boolean>(false);
+
   return (
     <div
       style={{
         width: "100%",
+        height: "200vh",
         // display: "flex",
         // flexDirection: "column",
         // justifyContent: "center",
@@ -57,7 +60,9 @@ function App() {
         padding: "50px",
       }}
     >
-     
+      
+
+      <Button onClick={() => setOpen(true)}>Open</Button>
     </div>
   );
 }
