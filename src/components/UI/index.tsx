@@ -21,6 +21,7 @@ import Badge from "./Badge";
 import Space from "./Space";
 import Rate from "./Rate";
 import Comment from "./Comment";
+import Alert from "./Alert";
 
 export {
   Grid,
@@ -47,4 +48,5 @@ export {
   Space,
   Rate,
   Comment,
+  Alert,
 };

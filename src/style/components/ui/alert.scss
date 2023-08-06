@@ -1,0 +1,107 @@
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 20;
+  .alert-item {
+    min-width: max-content;
+    margin: $m-10 0;
+    border-radius: $roundedSm;
+    box-shadow: 0 5px 10px $gray-2;
+    overflow: hidden;
+    position: relative;
+    right: 0;
+    transition: all $durationMd $func;
+    animation: slideRightIn $durationMd $func;
+    .item-content {
+      padding: $p-10 - 0.5 $p-10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .content-icon {
+        width: $w-10 * 2;
+        height: $h-10 * 2;
+        border-radius: $circle;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & * {
+          color: $tWhite-1;
+        }
+      }
+      .content-message {
+        font-size: $body-2;
+      }
+      .content-action {
+        margin-left: $m-10 * 3;
+        background: transparent;
+        border: unset;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .item-progress {
+      width: $w-100;
+      height: 3px;
+      .progress-bar {
+        height: $h-100;
+        animation: drainOut 4s $func forwards;
+      }
+    }
+  }
+  .alert-item-hide {
+    right: -100%;
+    animation: slideRightOut $durationMd $func;
+  }
+  // Type
+  .alert-item-success {
+    .item-content {
+      .content-icon {
+        background: $green-1;
+      }
+    }
+    .item-progress {
+      .progress-bar {
+        background: $green-1;
+      }
+    }
+  }
+  .alert-item-error {
+    .item-content {
+      .content-icon {
+        background: $red-1;
+      }
+    }
+    .item-progress {
+      .progress-bar {
+        background: $red-1;
+      }
+    }
+  }
+  .alert-item-info {
+    .item-content {
+      .content-icon {
+        background: $blue-1;
+      }
+    }
+    .item-progress {
+      .progress-bar {
+        background: $blue-1;
+      }
+    }
+  }
+  .alert-item-warning {
+    .item-content {
+      .content-icon {
+        background: $orange-1;
+      }
+    }
+    .item-progress {
+      .progress-bar {
+        background: $orange-1;
+      }
+    }
+  }
+}
