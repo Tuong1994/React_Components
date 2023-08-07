@@ -21,12 +21,6 @@
     border-radius: $roundedSm;
     outline: none;
     transition: all $durationMd $func;
-    &:hover {
-      border-color: $blue-1;
-    }
-    &:focus-within {
-      border-color: $blue-1;
-    }
     .group-control {
       width: $w-100;
       display: flex;
@@ -156,10 +150,6 @@
               padding: $p-10 - 0.5 $p-10;
               cursor: pointer;
               transition: all $durationMd $func;
-              &:hover {
-                background: $blue-1;
-                color: $tWhite-1;
-              }
             }
           }
           .select-option-active {
@@ -204,16 +194,11 @@
           line-height: $h-10 * 3;
           cursor: pointer;
           transition: all $durationMd $func;
-          &:hover {
-            background: $RGBA-blue-2;
-            color: $tWhite-1;
-          }
         }
         .item-inner-sub-date {
           color: $tGray-2;
         }
         .item-inner-active {
-          background: $blue-1;
           color: $tWhite-1;
         }
       }
@@ -287,6 +272,95 @@
       .control-suffix {
         padding: $p-10 - 0.5 $p-10 - 0.2;
       }
+    }
+  }
+}
+
+// Variant
+.input-datepicker-success {
+  .datepicker-group {
+    &:hover {
+      border-color: $green-1;
+    }
+    &:focus-within {
+      border-color: $green-1;
+    }
+  }
+  .datepicker-calendar {
+    .select-option {
+      .option-item {
+        &:hover {
+          background: $green-1;
+          color: $tWhite-1;
+        }
+      }
+    }
+    .item-inner {
+      &:hover {
+        background: $RGBA-green-2;
+        color: $tWhite-1;
+      }
+    }
+    .item-inner-active {
+      background: $green-1;
+    }
+  }
+}
+.input-datepicker-warning {
+  .datepicker-group {
+    &:hover {
+      border-color: $orange-1;
+    }
+    &:focus-within {
+      border-color: $orange-1;
+    }
+  }
+  .datepicker-calendar {
+    .select-option {
+      .option-item {
+        &:hover {
+          background: $orange-1;
+          color: $tWhite-1;
+        }
+      }
+    }
+    .item-inner {
+      &:hover {
+        background: $RGBA-orange-2;
+        color: $tWhite-1;
+      }
+    }
+    .item-inner-active {
+      background: $orange-1;
+    }
+  }
+}
+.input-datepicker-info {
+  .datepicker-group {
+    &:hover {
+      border-color: $blue-1;
+    }
+    &:focus-within {
+      border-color: $blue-1;
+    }
+  }
+  .datepicker-calendar {
+    .select-option {
+      .option-item {
+        &:hover {
+          background: $blue-1;
+          color: $tWhite-1;
+        }
+      }
+    }
+    .item-inner {
+      &:hover {
+        background: $RGBA-blue-2;
+        color: $tWhite-1;
+      }
+    }
+    .item-inner-active {
+      background: $blue-1;
     }
   }
 }

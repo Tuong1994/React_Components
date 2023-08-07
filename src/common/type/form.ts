@@ -27,3 +27,10 @@ export interface IDate {
   year: number;
   type: "main" | "sub";
 }
+
+export interface FileUpload {
+  id: string;
+  file?: File;
+  url?: string;
+  name?: string;
+}

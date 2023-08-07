@@ -1,0 +1,42 @@
+.single-image-upload {
+  .upload-group {
+    display: block;
+    width: $w-10 * 10;
+    height: $h-10 * 10;
+    border: 1px dashed $gray-2;
+    overflow: hidden;
+    transition: all $durationMd $func;
+    .group-control {
+      width: $w-100;
+      height: $h-100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      .control-input {
+        display: none;
+      }
+    }
+  }
+  .upload-group-info {
+    &:hover {
+      border-color: $blue-1;
+    }
+  }
+  .upload-group-success {
+    &:hover {
+      border-color: $green-1;
+    }
+  }
+  .upload-group-warning {
+    &:hover {
+      border-color: $orange-1;
+    }
+  }
+  .upload-group-circle {
+    border-radius: $circle;
+  }
+  .upload-group-square {
+    border-radius: $roundedMd;
+  }
+}

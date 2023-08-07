@@ -1,18 +1,19 @@
 import React from "react";
+import { FieldProps } from "formik";
 import { SelectOption } from "@/common/type/form";
 import { ConditionRecord } from "@/common/type/base";
+import { NoteMessage } from "@/components/UI";
 import SelectBasicOptions from "./Options";
 import SelectBasicControl from "./Control";
 import useRender from "@/common/hooks/useRender";
 import useClickOutside from "@/common/hooks/useClickOutside";
 import useDetectBottom from "@/common/hooks/useDetectBottom";
-import { FieldProps } from "formik";
-import { NoteMessage } from "@/components/UI";
 
 export interface SelectBasicProps extends FieldProps {
   rootClass?: string;
   style?: React.CSSProperties;
   size?: "sm" | "md" | "lg";
+  variant?: "success" | "warning" | "info";
   label?: string;
   value?: string;
   placeholder?: string;
@@ -35,6 +36,7 @@ const SelectBasic: React.ForwardRefRenderFunction<
     rootClass = "",
     style,
     size = "md",
+    variant = "info",
     label,
     required,
     disabled = false,
@@ -82,6 +84,15 @@ const SelectBasic: React.ForwardRefRenderFunction<
     return sizes[size];
   }, [size]);
 
+  const variantClass = React.useMemo(() => {
+    const variants: ConditionRecord = {
+      success: "input-select-success",
+      warning: "input-select-warning",
+      info: "input-select-info",
+    };
+    return variants[variant];
+  }, [variant]);
+
   const renderValue = React.useCallback(() => {
     if (searchValue) return searchValue;
     if (selectValue) return selectValue.label;
@@ -121,7 +132,7 @@ const SelectBasic: React.ForwardRefRenderFunction<
       <div
         ref={selectRef}
         style={style}
-        className={`input-select ${sizeClass} ${rootClass}`}
+        className={`input-select ${variantClass} ${sizeClass} ${rootClass}`}
       >
         <label className="select-label">
           <span className="label-name">{label}</span>

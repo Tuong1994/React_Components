@@ -13,6 +13,7 @@ export interface SelectAsyncProps extends FieldProps {
   rootClass?: string;
   style?: React.CSSProperties;
   size?: "sm" | "md" | "lg";
+  variant?: "success" | "warning" | "info";
   label?: string;
   placeholder?: string;
   required?: boolean;
@@ -38,6 +39,7 @@ const SelectAsync: React.ForwardRefRenderFunction<
     rootClass = "",
     style,
     size = "md",
+    variant = "info",
     label,
     prefix,
     required,
@@ -95,6 +97,15 @@ const SelectAsync: React.ForwardRefRenderFunction<
     return sizes[size];
   }, [size]);
 
+  const variantClass = React.useMemo(() => {
+    const variants: ConditionRecord = {
+      success: "input-select-success",
+      warning: "input-select-warning",
+      info: "input-select-info",
+    };
+    return variants[variant];
+  }, [variant]);
+
   const renderValue = React.useCallback(() => {
     if (searchValue) return searchValue;
     if (selectValue) return selectValue.label;
@@ -142,7 +153,7 @@ const SelectAsync: React.ForwardRefRenderFunction<
       <div
         ref={selectRef}
         style={style}
-        className={`input-select ${sizeClass} ${rootClass}`}
+        className={`input-select ${variantClass} ${sizeClass} ${rootClass}`}
       >
         <label className="select-label">
           <span className="label-name">{label}</span>

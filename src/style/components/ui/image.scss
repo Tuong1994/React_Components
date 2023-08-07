@@ -2,13 +2,22 @@
 .image {
   width: $w-100;
   height: $h-100;
+  border-radius: $roundedMd;
   position: relative;
   overflow: hidden;
   &:hover .image-action {
     opacity: 1;
   }
+  .image-loading {
+    width: $w-100;
+    height: $h-100;
+    background: $gray-1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn $durationMd $func;
+  }
   .image-view {
-    border-radius: $roundedMd;
     object-position: center;
   }
   .image-action {
@@ -59,13 +68,19 @@
 }
 
 .image-cover {
-  object-fit: cover;
+  .image-view {
+    object-fit: cover;
+  }
 }
 
 .image-contain {
-  object-fit: contain;
+  .image-view {
+    object-fit: contain;
+  }
 }
 
 .image-fill {
-  object-fit: fill;
+  .image-view {
+    object-fit: fill;
+  }
 }

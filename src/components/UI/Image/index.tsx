@@ -1,15 +1,18 @@
 import React from "react";
-import { FaEye, FaTrash } from "react-icons/fa";
 import { ConditionRecord } from "@/common/type/base";
+import { Spinner } from "../Loading";
 import Modal from "../Modal";
+import ImageView from "./View";
 
 export interface ImageProps {
   rootClass?: string;
+  imgClass?: string;
   src?: string;
   alt?: string;
   hasPreview?: boolean;
   style?: React.CSSProperties;
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  imgStyle?: React.CSSProperties;
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "auto";
   fit?: "cover" | "contain" | "fill" | "none";
   onRemove?: () => void;
 }
@@ -22,57 +25,42 @@ interface PreviewState {
 const Image: React.ForwardRefRenderFunction<HTMLImageElement, ImageProps> = (
   {
     rootClass = "",
+    imgClass = "",
     style,
+    imgStyle,
     src = require("../../../images/gallery/gallery_1.jpg"),
     alt = "image",
-    size = "sm",
+    size = "auto",
     fit = "none",
     hasPreview = false,
     onRemove,
   },
   ref
 ) => {
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
+
+  const [view, setView] = React.useState<string>("");
+
   const [isPreview, setIsPreview] = React.useState<PreviewState>({
     active: false,
     url: src,
   });
 
+  const imageRef = React.useRef<HTMLDivElement>(null);
+
   React.useEffect(() => {
-    if (!window["IntersectionObserver"]) {
-      const imageEl = document.getElementById("image") as HTMLImageElement;
-      return loadImages(imageEl);
-    }
+    if (window["IntersectionObserver"]) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          setView(src);
+          if (imageRef && imageRef.current)
+            observer.unobserve(imageRef.current);
+        }
+      });
 
-    const images = document.querySelectorAll("[data-src]");
-
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            loadImages(entry.target as HTMLImageElement);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.7,
-        rootMargin: "0px 0px 0px 0px",
-      }
-    );
-
-    images.forEach((image) => observer.observe(image));
-
-    return () => images.forEach((image) => observer.unobserve(image));
-  }, []);
-
-  const loadImages = (imageEl: HTMLImageElement) => {
-    if (imageEl) {
-      imageEl.src = imageEl.dataset.src ?? "";
-      imageEl.style.opacity = "1";
-      imageEl.style.background = "transparent";
-      imageEl.style.animation = "fadeIn 0.4s linear 1";
-    }
-  };
+      if (imageRef && imageRef.current) observer.observe(imageRef.current);
+    } else setView(src);
+  }, [src]);
 
   const sizeClass = React.useMemo(() => {
     const sizes: ConditionRecord = {
@@ -104,19 +92,22 @@ const Image: React.ForwardRefRenderFunction<HTMLImageElement, ImageProps> = (
   return (
     <React.Fragment>
       <div className={`image ${sizeClass} ${fitClass} ${rootClass}`}>
-        <img
-          id="image"
-          ref={ref}
-          data-src={src}
-          alt={alt}
-          style={style}
-          className={`image-view ${sizeClass} ${fitClass} ${rootClass}`}
-        />
-        {hasPreview && (
-          <div className="image-action">
-            <FaEye className="action-icon" size={18} onClick={onPreview} />
-            <FaTrash className="action-icon" size={18} onClick={onRemove} />
+        {isLoading && !view ? (
+          <div ref={imageRef} className="image-loading">
+            <Spinner />
           </div>
+        ) : (
+          <ImageView
+            ref={ref}
+            imgClass={imgClass}
+            style={imgStyle}
+            view={view}
+            alt={alt}
+            hasPreview={hasPreview}
+            onPreview={onPreview}
+            onRemove={onRemove}
+            setIsLoading={setIsLoading}
+          />
         )}
       </div>
 

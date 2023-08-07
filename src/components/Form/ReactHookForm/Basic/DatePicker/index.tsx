@@ -14,6 +14,7 @@ export interface DatePickerProps {
   rootClass?: string;
   style?: React.CSSProperties;
   size?: "sm" | "md" | "lg";
+  variant?: "success" | "warning" | "info";
   label?: string;
   value?: Date;
   placeholder?: string;
@@ -33,6 +34,7 @@ const DatePicker: React.ForwardRefRenderFunction<
     rootClass = "",
     style,
     size = "md",
+    variant = "info",
     label,
     required,
     disabled = false,
@@ -76,6 +78,15 @@ const DatePicker: React.ForwardRefRenderFunction<
     return sizes[size];
   }, [size]);
 
+  const variantClass = React.useMemo(() => {
+    const variants: ConditionRecord = {
+      success: "input-datepicker-success",
+      warning: "input-datepicker-warning",
+      info: "input-datepicker-info",
+    };
+    return variants[variant];
+  }, [variant]);
+
   const renderValue = React.useCallback(() => {
     if (fieldValue) return moment(fieldValue).format("DD/MM/YYYY");
     else if (selectValue) return moment(selectValue).format("DD/MM/YYYY");
@@ -98,7 +109,7 @@ const DatePicker: React.ForwardRefRenderFunction<
       <div
         ref={datepickerRef}
         style={style}
-        className={`input-datepicker ${sizeClass} ${rootClass}`}
+        className={`input-datepicker ${variantClass} ${sizeClass} ${rootClass}`}
       >
         <label className="datepicker-label">
           <span className="label-name">{label}</span>

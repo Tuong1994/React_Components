@@ -10,6 +10,7 @@ export interface InputPasswordProps extends FieldProps {
   label?: string;
   placeholder?: string;
   size?: "sm" | "md" | "lg";
+  variant?: "success" | "warning" | "info";
   required?: boolean;
   disabled?: boolean;
   prefix?: React.ReactNode | React.ReactNode[];
@@ -28,6 +29,7 @@ const InputPassword: React.ForwardRefRenderFunction<
     label,
     placeholder = "Type in...",
     size = "md",
+    variant = "info",
     required,
     disabled,
     prefix,
@@ -53,6 +55,15 @@ const InputPassword: React.ForwardRefRenderFunction<
     return sizes[size];
   }, [size]);
 
+  const variantClass = React.useMemo(() => {
+    const variants: ConditionRecord = {
+      success: "input-password-success",
+      warning: "input-password-warning",
+      info: "input-password-info",
+    };
+    return variants[variant];
+  }, [variant]);
+
   const onClearInput = () => setFieldValue(name, "");
 
   const handleSwitchType = () => {
@@ -64,7 +75,7 @@ const InputPassword: React.ForwardRefRenderFunction<
     <div
       ref={ref}
       style={style}
-      className={`input-password ${sizeClass} ${rootClass}`}
+      className={`input-password ${variantClass} ${sizeClass} ${rootClass}`}
     >
       <label>
         <div className="password-label">

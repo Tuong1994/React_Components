@@ -3,15 +3,26 @@ import * as yup from "yup";
 import * as Components from "./components";
 import { SelectOption } from "./common/type/form";
 import { Formik, Form, Field } from "formik";
+import { Divider } from "./components/UI";
 
-const { DatePicker } = Components.Form.Formik.Basic;
+const {
+  Input,
+  Password,
+  TextArea,
+  Select,
+  SelectAsync,
+  SelectTag,
+  DatePicker,
+} = Components.Form.Formik.Basic;
+const { Single, Multiple } = Components.Form.Upload.Image;
 const { Button } = Components.UI;
 
 interface FormData {
   account: string;
   password: string;
   intro: string;
-  gender: number;
+  gender: number | null;
+  productId: string;
   userId: number[];
   birthday: Date;
 }
@@ -21,7 +32,8 @@ function App() {
     account: "",
     password: "",
     intro: "",
-    gender: 0,
+    gender: null,
+    productId: "",
     userId: [],
     birthday: new Date(),
   };
@@ -52,17 +64,19 @@ function App() {
     <div
       style={{
         width: "100%",
-        height: "200vh",
-        // display: "flex",
-        // flexDirection: "column",
-        // justifyContent: "center",
-        // alignItems: "center",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         padding: "50px",
       }}
     >
-      
+      <div style={{ width: "400px" }}>
+        <Single />
 
-      <Button onClick={() => setOpen(true)}>Open</Button>
+        <Divider />
+
+        <Multiple />
+      </div>
     </div>
   );
 }

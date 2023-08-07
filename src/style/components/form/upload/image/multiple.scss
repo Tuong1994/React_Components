@@ -1,0 +1,66 @@
+.multiple-image-upload {
+  width: $w-100;
+  .upload-control {
+    width: $w-100;
+    padding: $p-10 * 2;
+    display: block;
+    cursor: pointer;
+    border: 1px dashed $gray-2;
+    border-radius: $roundedMd;
+    transition: all $durationMd $func;
+    .control-input {
+      display: none;
+    }
+    .control-label {
+      width: $w-100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .label-icon {
+        margin-bottom: $m-10;
+      }
+    }
+  }
+  .upload-images {
+    width: $w-100;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    .images-view {
+      width: calc(($w-100 / 4) - 5px);
+      height: $h-10 * 10;
+    }
+  }
+  .upload-group-info {
+    &:hover {
+      border-color: $blue-1;
+    }
+    .label-icon {
+      path {
+        color: $tBlue-1;
+      }
+    }
+  }
+  .upload-group-success {
+    &:hover {
+      border-color: $green-1;
+    }
+    .label-icon {
+      path {
+        color: $tGreen-1;
+      }
+    }
+  }
+  .upload-group-warning {
+    &:hover {
+      border-color: $orange-1;
+    }
+    .label-icon {
+      path {
+        color: $tOrange-1;
+      }
+    }
+  }
+}

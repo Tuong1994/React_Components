@@ -8,6 +8,7 @@ export interface InputPasswordProps {
   rootClass?: string;
   style?: React.CSSProperties;
   size?: "sm" | "md" | "lg";
+  variant?: "success" | "warning" | "info";
   label?: string;
   value?: string;
   placeholder?: string;
@@ -27,6 +28,7 @@ const InputPassword: React.ForwardRefRenderFunction<
     rootClass = "",
     style,
     size = "md",
+    variant = "info",
     label,
     required,
     disabled,
@@ -58,6 +60,15 @@ const InputPassword: React.ForwardRefRenderFunction<
     };
     return sizes[size];
   }, [size]);
+
+  const variantClass = React.useMemo(() => {
+    const variants: ConditionRecord = {
+      success: "input-password-success",
+      warning: "input-password-warning",
+      info: "input-password-info",
+    };
+    return variants[variant];
+  }, [variant]);
 
   const renderValue = React.useCallback(() => {
     if (fieldValue) return fieldValue;
@@ -95,7 +106,7 @@ const InputPassword: React.ForwardRefRenderFunction<
     <div
       ref={ref}
       style={style}
-      className={`input-password ${sizeClass} ${rootClass}`}
+      className={`input-password ${variantClass} ${sizeClass} ${rootClass}`}
     >
       <label>
         <div className="password-label">

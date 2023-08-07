@@ -10,6 +10,7 @@ export interface InputProps extends FieldProps {
   label?: string;
   placeholder?: string;
   size?: "sm" | "md" | "lg";
+  variant?: "success" | "warning" | "info";
   required?: boolean;
   disabled?: boolean;
   prefix?: React.ReactNode | React.ReactNode[];
@@ -25,6 +26,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (
     label,
     placeholder = "Type in...",
     size = "md",
+    variant = "info",
     required,
     disabled,
     prefix,
@@ -50,13 +52,22 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (
     return sizes[size];
   }, [size]);
 
+  const variantClass = React.useMemo(() => {
+    const variants: ConditionRecord = {
+      success: "input-success",
+      warning: "input-warning",
+      info: "input-info",
+    };
+    return variants[variant];
+  }, [variant]);
+
   const onClearInput = () => setFieldValue(name, "");
 
   return (
     <div
       ref={ref}
       style={style}
-      className={`input ${sizeClass} ${rootClass}`}
+      className={`input ${variantClass} ${sizeClass} ${rootClass}`}
     >
       <label>
         <div className="input-label">

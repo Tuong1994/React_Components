@@ -23,12 +23,6 @@
     outline: none;
     transition: all $durationMd $func;
     overflow: hidden;
-    &:hover {
-      border-color: $blue-1;
-    }
-    &:focus-within {
-      border-color: $blue-1;
-    }
     .group-control {
       width: $w-100;
       display: flex;
@@ -102,9 +96,6 @@
         justify-content: space-between;
         align-items: center;
         transition: all $durationMd $func;
-        &:hover {
-          background: $RGBA-blue-1;
-        }
         .item-name {
           font-size: $body-2;
           transition: all $durationMd $func;
@@ -127,7 +118,6 @@
         color: $tGray-2;
       }
       .group-item-selected {
-        background: $blue-1;
         .item-name {
           color: $tWhite-1;
         }
@@ -283,5 +273,61 @@
     .group-suffix {
       padding: $p-10 - 0.5 $p-10 - 0.2;
     }
+  }
+}
+
+// Variant
+.input-select-success {
+  .select-group {
+    &:hover {
+      border-color: $green-1;
+    }
+    &:focus-within {
+      border-color: $green-1;
+    }
+  }
+  .group-item {
+    &:hover {
+      background: $RGBA-green-1;
+    }
+  }
+  .group-item-selected {
+    background: $green-1;
+  }
+}
+.input-select-warning {
+  .select-group {
+    &:hover {
+      border-color: $orange-1;
+    }
+    &:focus-within {
+      border-color: $orange-1;
+    }
+  }
+  .group-item {
+    &:hover {
+      background: $RGBA-orange-1;
+    }
+  }
+  .group-item-selected {
+    background: $orange-1;
+  }
+}
+.input-select-info {
+  .select-group {
+    &:hover {
+      border-color: $blue-1;
+    }
+    &:focus-within {
+      border-color: $blue-1;
+    }
+  }
+  .group-item {
+    &:hover {
+      background: $RGBA-blue-1;
+    }
+  }
+  .group-item-selected {
+    background: $blue-1;
   }
 }

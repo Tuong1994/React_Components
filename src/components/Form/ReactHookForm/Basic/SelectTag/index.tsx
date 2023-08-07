@@ -14,6 +14,7 @@ export interface SelectTagProps {
   rootClass?: string;
   style?: React.CSSProperties;
   size?: "sm" | "md" | "lg";
+  variant?: "success" | "warning" | "info";
   label?: string;
   value?: string;
   placeholder?: string;
@@ -38,6 +39,7 @@ const SelectTag: React.ForwardRefRenderFunction<
     rootClass = "",
     style,
     size = "md",
+    variant = "info",
     label,
     prefix,
     required,
@@ -93,6 +95,15 @@ const SelectTag: React.ForwardRefRenderFunction<
     };
     return sizes[size];
   }, [size]);
+
+  const variantClass = React.useMemo(() => {
+    const variants: ConditionRecord = {
+      success: "input-select-success",
+      warning: "input-select-warning",
+      info: "input-select-info",
+    };
+    return variants[variant];
+  }, [variant]);
 
   const renderValue = React.useCallback(() => {
     if (!fieldValue) {
@@ -175,7 +186,7 @@ const SelectTag: React.ForwardRefRenderFunction<
       <div
         ref={selectRef}
         style={style}
-        className={`input-select ${sizeClass} ${rootClass}`}
+        className={`input-select ${variantClass} ${sizeClass} ${rootClass}`}
       >
         <label className="select-label">
           <span className="label-name">{label}</span>

@@ -8,6 +8,7 @@ export interface TextAreaProps {
   rootClass?: string;
   style?: React.CSSProperties;
   size?: "sm" | "md" | "lg";
+  variant?: "success" | "warning" | "info";
   rows?: number;
   cols?: number;
   label?: string;
@@ -33,6 +34,7 @@ const TextArea: React.ForwardRefRenderFunction<
     cols = 10,
     value = "",
     size = "md",
+    variant = "info",
     rootClass = "",
     placeholder = "Type in...",
     onBlur,
@@ -56,6 +58,15 @@ const TextArea: React.ForwardRefRenderFunction<
     };
     return sizes[size];
   }, [size]);
+
+  const variantClass = React.useMemo(() => {
+    const variants: ConditionRecord = {
+      success: "input-textarea-success",
+      warning: "input-textarea-warning",
+      info: "input-textarea-info",
+    };
+    return variants[variant];
+  }, [variant]);
 
   const renderValue = React.useCallback(() => {
     if (fieldValue) return fieldValue;
@@ -88,7 +99,7 @@ const TextArea: React.ForwardRefRenderFunction<
     <div
       ref={ref}
       style={style}
-      className={`input-textarea ${sizeClass} ${rootClass}`}
+      className={`input-textarea ${variantClass} ${sizeClass} ${rootClass}`}
     >
       <label>
         <div className="textarea-label">

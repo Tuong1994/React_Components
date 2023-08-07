@@ -8,6 +8,7 @@ export interface InputProps {
   rootClass?: string;
   style?: React.CSSProperties;
   size?: "sm" | "md" | "lg";
+  variant?: "success" | "warning" | "info";
   label?: string;
   value?: string;
   placeholder?: string;
@@ -25,6 +26,7 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (
     rootClass = "",
     style,
     size = "md",
+    variant = "info",
     label,
     required,
     disabled,
@@ -54,6 +56,15 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (
     return sizes[size];
   }, [size]);
 
+  const variantClass = React.useMemo(() => {
+    const variants: ConditionRecord = {
+      success: "input-success",
+      warning: "input-warning",
+      info: "input-info",
+    };
+    return variants[variant];
+  }, [variant]);
+
   const renderValue = React.useCallback(() => {
     if (fieldValue) return fieldValue;
     if (inputValue) return inputValue;
@@ -82,7 +93,11 @@ const Input: React.ForwardRefRenderFunction<HTMLDivElement, InputProps> = (
   );
 
   return (
-    <div ref={ref} style={style} className={`input ${sizeClass} ${rootClass}`}>
+    <div
+      ref={ref}
+      style={style}
+      className={`input ${variantClass} ${sizeClass} ${rootClass}`}
+    >
       <label>
         <div className="input-label">
           <span className="label-name">{label}</span>
