@@ -1,7 +1,7 @@
 import React from "react";
 import { ColSpan } from "@/common/type/grid";
 import { GridContext } from "./Context";
-import useViewpoint from "@/common/hooks/useViewpoint";
+import useReponsive from "@/common/hooks/useReponsive";
 
 export interface GridColProps {
   rootClass?: string;
@@ -21,11 +21,11 @@ const GridCol: React.ForwardRefRenderFunction<HTMLDivElement, GridColProps> = (
 ) => {
   const { gutters = [] } = React.useContext(GridContext);
 
+  const { isPhone, isTablet, isLaptop, isDesktop } = useReponsive();
+
   const [colWidth, setColWidth] = React.useState<string>("100%");
 
   const [isHide, setIsHide] = React.useState<boolean>(false);
-
-  const width = useViewpoint();
 
   const gapSize = React.useMemo(() => {
     if (!gutters.length) return GAP_SIZE_DEFAULT;
@@ -36,14 +36,6 @@ const GridCol: React.ForwardRefRenderFunction<HTMLDivElement, GridColProps> = (
   const inlineStyle = React.useMemo(() => {
     return { ...style, width: colWidth };
   }, [style, colWidth]);
-
-  const isPhone = React.useMemo(() => width >= 320 && width <= 480, [width]);
-
-  const isTablet = React.useMemo(() => width > 480 && width <= 768, [width]);
-
-  const isLaptop = React.useMemo(() => width > 768 && width <= 1100, [width]);
-
-  const isDesktop = React.useMemo(() => width > 1100, [width]);
 
   const calculateWidth = (colspan: ColSpan) =>
     `calc((100% / 24) * ${colspan} - ${gapSize}px)`;
@@ -69,7 +61,17 @@ const GridCol: React.ForwardRefRenderFunction<HTMLDivElement, GridColProps> = (
     }
 
     if (xs === 24 || md === 24 || lg === 24) return setColWidth("100%");
-  }, [span, xs, md, lg, width, gapSize]);
+  }, [
+    span,
+    xs,
+    md,
+    lg,
+    gapSize,
+    isPhone,
+    isTablet,
+    isLaptop,
+    isDesktop,
+  ]);
 
   // Hide col if all col span value === 0
   React.useEffect(() => {

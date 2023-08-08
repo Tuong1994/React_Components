@@ -24,6 +24,8 @@ import Comment from "./Comment";
 import Alert from "./Alert";
 import Switch from "./Switch";
 import Drawer from "./Drawer";
+import PreviewImage from "./PreviewImage";
+import Draggable from "./Draggable";
 
 export {
   Grid,
@@ -51,6 +53,8 @@ export {
   Alert,
   Switch,
   Drawer,
+  Draggable,
+  PreviewImage,
   List,
   ListItem,
 };

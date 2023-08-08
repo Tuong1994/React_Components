@@ -1,8 +1,8 @@
 import React from "react";
 import { ConditionRecord } from "@/common/type/base";
 import { Spinner } from "../Loading";
-import Modal from "../Modal";
 import ImageView from "./View";
+import PreviewImage from "../PreviewImage";
 
 export interface ImageProps {
   rootClass?: string;
@@ -91,7 +91,7 @@ const Image: React.ForwardRefRenderFunction<HTMLImageElement, ImageProps> = (
 
   return (
     <React.Fragment>
-      <div className={`image ${sizeClass} ${fitClass} ${rootClass}`}>
+      <div style={style} className={`image ${sizeClass} ${fitClass} ${rootClass}`}>
         {isLoading && !view ? (
           <div ref={imageRef} className="image-loading">
             <Spinner />
@@ -111,9 +111,11 @@ const Image: React.ForwardRefRenderFunction<HTMLImageElement, ImageProps> = (
         )}
       </div>
 
-      <Modal size="lg" open={isPreview.active} onCancel={onCancel}>
-        <img src={isPreview.url} alt={alt} />
-      </Modal>
+      <PreviewImage
+        src={isPreview.url}
+        open={isPreview.active}
+        onClose={onCancel}
+      />
     </React.Fragment>
   );
 };

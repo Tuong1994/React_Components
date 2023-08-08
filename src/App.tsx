@@ -3,7 +3,6 @@ import * as yup from "yup";
 import * as Components from "./components";
 import { SelectOption } from "./common/type/form";
 import { Formik, Form, Field } from "formik";
-import { Divider } from "./components/UI";
 
 const {
   Input,
@@ -14,8 +13,8 @@ const {
   SelectTag,
   DatePicker,
 } = Components.Form.Formik.Basic;
-const { Single, Multiple } = Components.Form.Upload.Image;
-const { Button } = Components.UI;
+const { Single } = Components.Form.Upload.Image;
+const { Row, Col } = Components.UI.Grid;
 
 interface FormData {
   account: string;
@@ -60,6 +59,8 @@ function App() {
 
   const [open, setOpen] = React.useState<boolean>(false);
 
+  const onClose = () => setOpen(false);
+
   return (
     <div
       style={{
@@ -72,10 +73,6 @@ function App() {
     >
       <div style={{ width: "400px" }}>
         <Single />
-
-        <Divider />
-
-        <Multiple />
       </div>
     </div>
   );

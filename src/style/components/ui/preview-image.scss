@@ -1,0 +1,62 @@
+.preview-image {
+  width: $w-100;
+  height: 100vh;
+  background: $RGBA-black-3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $durationMd $func;
+  .image-header {
+    height: $h-10 * 5;
+    padding: $p-10 * 2 $p-10 * 5;
+    background: $RGBA-black-2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .header-action {
+      border: unset;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      & * {
+        color: $tWhite-1;
+      }
+    }
+    .header-action-disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+  .image-area {
+    width: $w-100;
+    height: calc(100vh - $h-10 * 5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .area-view {
+      width: $w-10 * 50;
+      height: $h-10 * 50;
+      position: absolute;
+      transition: all $durationSm $func;
+      @include respond(mdPhone) {
+        width: $w-10 * 30;
+        height: $h-10 * 30;
+      }
+      .image {
+        overflow: unset;
+      }
+    }
+  }
+}
+
+.preview-image-active {
+  opacity: 1;
+  visibility: visible;
+  animation: fadeIn $durationMd $func;
+}
